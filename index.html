@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Typing Speed Test</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Typing Speed Test</h1>
+            <div class="settings">
+                <select id="difficulty">
+                    <option value="easy">Easy</option>
+                    <option value="medium">Medium</option>
+                    <option value="hard">Hard</option>
+                </select>
+                <button id="darkModeToggle" class="dark-mode-toggle">☀︎</button>
+            </div>
+        </div>
+        <div class="progress-container">
+            <div class="progress-bar" id="progressBar"></div>
+        </div>
+        <div class="text-display" id="textDisplay"></div>
+        <textarea id="textInput" class="text-input" rows="5" placeholder="Start typing here..."></textarea>
+        <div class="stats">
+            <div class="stat">
+                <p>Time:</p>
+                <span id="timer">0s</span>
+            </div>
+            <div class="stat">
+                <p>WPM:</p>
+                <span id="wpm">0</span>
+            </div>
+            <div class="stat">
+                <p>Accuracy:</p>
+                <span id="accuracy">100%</span>
+            </div>
+        </div>
+        <button id="restartBtn" class="restart-btn">Restart</button>
+        <div class="leaderboard">
+            <h2>Leaderboard</h2>
+            <ol id="highScores"></ol>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
