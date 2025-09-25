@@ -37,11 +37,16 @@ let time = 0;
 let currentSentence = '';
 let interval;
 let currentDifficulty = 'easy';
+let lastSentenceIndex = -1;
 const highScores = JSON.parse(localStorage.getItem('highScores')) || [];
 
 function getRandomSentence() {
     const sentencesForDifficulty = sentences[currentDifficulty];
-    const randomIndex = Math.floor(Math.random() * sentencesForDifficulty.length);
+    let randomIndex;
+    do {
+        randomIndex = Math.floor(Math.random() * sentencesForDifficulty.length);
+    } while (sentencesForDifficulty.length > 1 && randomIndex === lastSentenceIndex);
+    lastSentenceIndex = randomIndex;
     return sentencesForDifficulty[randomIndex];
 }
 
@@ -112,6 +117,7 @@ darkModeToggle.addEventListener('click', () => {
 
 difficultySelect.addEventListener('change', (e) => {
     currentDifficulty = e.target.value;
+    lastSentenceIndex = -1;
     updateTextDisplay();
 });
 
